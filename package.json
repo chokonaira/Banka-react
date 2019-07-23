@@ -1,0 +1,31 @@
+{
+  "name": "banka-react",
+  "version": "1.0.0",
+  "description": "Converting Banka UI to use React",
+  "main": "index.js",
+  "scripts": {
+    "serve": "live-server public/",
+    "build": "webpack",
+    "dev-server": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chokonaira/Banka-react.git"
+  },
+  "author": "Henry Okonkwo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chokonaira/Banka-react/issues"
+  },
+  "homepage": "https://github.com/chokonaira/Banka-react#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "live-server": "^1.2.1",
+    "webpack": "^4.37.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.6"
+  }
+}
