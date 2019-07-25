@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "serve": "live-server public/",
-    "build": "webpack",
+    "build": "webpack --watch",
+    "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
     "dev-server": "webpack-dev-server"
   },
   "repository": {
@@ -19,11 +20,24 @@
   },
   "homepage": "https://github.com/chokonaira/Banka-react#readme",
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "live-server": "^1.2.1",
-    "webpack": "^4.37.0"
+    "babel-cli": "6.24.1",
+    "babel-core": "6.25.0",
+    "babel-loader": "7.1.1",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-preset-env": "1.5.2",
+    "babel-preset-react": "6.24.1",
+    "css-loader": "0.28.4",
+    "live-server": "^1.2.0",
+    "node-sass": "4.5.3",
+    "normalize.css": "7.0.0",
+    "react": "15.6.1",
+    "react-dom": "15.6.1",
+    "react-modal": "2.2.2",
+    "sass-loader": "6.0.6",
+    "style-loader": "0.18.2",
+    "validator": "8.0.0",
+    "webpack": "3.1.0",
+    "webpack-dev-server": "2.5.1"
   },
   "devDependencies": {
     "webpack-cli": "^3.3.6"
