@@ -1,38 +1,32 @@
 {
-  "root": true,
-  "extends": ["airbnb-base", "prettier"],
-  "plugins": ["prettier"],
-  "env": {
-    "node": true,
-    "es6": true,
-    "mocha": true
-  },
-  "rules": {
-    "one-var": 0,
-    "one-var-declaration-per-line": 0,
-    "new-cap": 0,
-    "consistent-return": 0,
-    "no-param-reassign": 0,
-    "comma-dangle": 0,
-    "curly": ["error", "multi-line"],
-    "import/no-unresolved": [2, {
-      "commonjs": true
-    }],
-    "no-shadow": ["error", {
-      "allow": ["req", "res", "err"]
-    }],
-    "valid-jsdoc": ["error", {
-      "requireReturn": true,
-      "requireReturnType": true,
-      "requireParamDescription": false,
-      "requireReturnDescription": true
-    }],
-    "require-jsdoc": ["error", {
-      "require": {
-        "FunctionDeclaration": true,
-        "MethodDefinition": true,
-        "ClassDeclaration": true
-      }
-    }]
-  }
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest": true
+    },
+    "extends": [
+        "airbnb",
+        "plugin:jest/recommended",
+        "jest-enzyme"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "jest"
+    ],
+    "rules": {
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/no-unescaped-entities": 0
+    }
 }
