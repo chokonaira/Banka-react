@@ -9,7 +9,8 @@
     "serve": "live-server public/",
     "build": "webpack",
     "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
-    "dev-server": "webpack-dev-server"
+    "dev-server": "webpack-dev-server",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "react": "15.6.1",
     "react-dom": "15.6.1",
     "react-modal": "2.2.2",
+    "express": "^4.17.1",
     "react-router-dom": "^4.2.2",
     "redux": "^4.0.4",
     "sass-loader": "^6.0.6",
