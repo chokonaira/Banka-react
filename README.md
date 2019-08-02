@@ -40,3 +40,48 @@ An admin can perform the following:
 10. Admin/staff can view a specific user account.
 11. Admin/staff can activate or deactivate an account.
 12. Admin/staff can delete a specific user account.
+
+### Compiler
+
+* [Babel](https://eslint.org/) - Compiler for Next Generation JavaScript
+
+## Running tests
+
+Tests were written using [Jest](https://jestjs.io/) and [Jest-Enzyme](https://www.npmjs.com/package/jest-enzyme) dev-dependencies
+
+```
+describe('AppRouter', () => {
+  let appRouter;
+  beforeEach(() => {
+    appRouter = shallow(<AppRouter />);
+  });
+```
+
+### And coding style tests too
+
+This project was built with the linter eslint and an [airbnb style guide](https://github.com/airbnb/javascript)
+
+```
+"rules": {
+      "one-var": 0,
+      "one-var-declaration-per-line": 0,
+      "new-cap": 0,
+      "consistent-return": 0,
+      }
+```
+
+## Built With
+
+* [React & Redux](https://react-redux.js.org/) - Web development
+* [Webpack](https://webpack.js.org/) - Asset Bundler
+* [NodeJs](https://nodejs.org/) - JavaScript runtime environment
+* [ExpressJs](https://expressjs.com) - Node RESTful API framework
+* [Heroku](https://www.heroku.com/) - Cloud hosting platform
+
+## Version Control
+
+I use [Github](http://github.com/) for version control.
+
+## Authors
+
+* **Henry Okonkwo**
