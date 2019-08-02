@@ -20,6 +20,6 @@ npm install
 npm start
 
 ## Links
-Repository: `https://github.com/andela/ah-nyati-frontend`
-Pivotal Tracker: `https://www.pivotaltracker.com/n/projects/2320730`
+Repository: `https://github.com/andela/ah-nyati-frontend` 
+Pivotal Tracker: `https://www.pivotaltracker.com/n/projects/2320730` 
 Template on Heroku: `https://banka--react.herokuapp.com`
