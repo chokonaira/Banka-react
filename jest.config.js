@@ -1,0 +1,37 @@
+module.exports = {
+  bail: false,
+  clearMocks: true,
+  collectCoverage: false,
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx}',
+    '!src/index.js',
+    '!src/store/index.js',
+    '!src/reducers/index.js',
+    '!src/actions/types.js',
+    '!**/node_modules/**',
+    '!**/vendor/**',
+  ],
+  coverageDirectory: 'coverage',
+  coveragePathIgnorePatterns: [
+    '/node_modules/',
+  ],
+  coverageReporters: [
+    'json',
+    'text',
+    'lcov',
+    'clover',
+  ],
+  errorOnDeprecated: true,
+  moduleFileExtensions: ['js', 'json', 'jsx'],
+  setupFilesAfterEnv: ['./tests.setup.js'],
+  testEnvironment: 'jsdom',
+  testMatch: ['**/tests/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
+  testPathIgnorePatterns: ['/node_modules/'],
+  testURL: 'http://localhost',
+  transform: {
+    '^.+\\.jsx?$': 'babel-jest',
+    '.+\\.(css|styl|less|sass|scss)$': 'jest-transform-css',
+  },
+  transformIgnorePatterns: ['/node_modules/'],
+  verbose: true,
+};
