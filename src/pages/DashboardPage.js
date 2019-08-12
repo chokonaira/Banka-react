@@ -1,8 +1,12 @@
+
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const DashboardPage = () => (
   <div>
-    This is Banka User Dashboard page
+    <h1>WELCOME TO THE USER DASHBOARD PAGE</h1>
+    <Link to="/">Go home</Link>
   </div>
 );
 
