@@ -6,7 +6,18 @@
   width: 100%;
   display: inherit;
 }
+.get-started1{
+  margin-top: 300px;
+  cursor: pointer;
+}
+.get-started{
+  background: #800000;
+  color: #fff;
+  padding: 12px;
+  border-radius: 5px;
+  text-decoration: none !important;
 
+}
 body, html {
   margin: 0;
   padding: 0;
