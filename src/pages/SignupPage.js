@@ -7,7 +7,7 @@ import InputField from '../components/InputField';
 import '../styles/css/style.css';
 import '../styles/css/utils.css';
 
-class Form extends Component {
+class signupForm extends Component {
   state = {
     firstname: '',
     lastname: '',
@@ -135,7 +135,7 @@ class Form extends Component {
   }
 }
 
-Form.propTypes = {
+signupForm.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.shape({
     userName: PropTypes.string,
@@ -152,4 +152,4 @@ const mapStateToProps = state => ({
   errors: state.errors,
 });
 
-export default connect(mapStateToProps, { registerUser })(withRouter(Form));
+export default connect(mapStateToProps, { registerUser })(withRouter(signupForm));
