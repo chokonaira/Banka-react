@@ -1,8 +1,16 @@
-import jwtDecode from 'jwt-decode';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from '../config/axiosInstance';
-import { GET_ERRORS, SET_CURRENT_USER } from './types';
+import {
+  REQUEST_LOADING, GET_ERRORS, SET_CURRENT_USER,
+} from './types';
 import setAuthToken from '../utils/setAuthToken';
-// import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from '../constants';
+
+// set request loading
+export const requestLoading = () => ({
+  type: REQUEST_LOADING,
+});
+
 
 // set logged in user
 export const setCurrentUser = decoded => ({
@@ -11,35 +19,62 @@ export const setCurrentUser = decoded => ({
 });
 
 export const loginUser = userData => (dispatch) => {
+  dispatch(requestLoading());
   axios
     .post('/auth/login', userData)
     .then((res) => {
       // save token to local storage
-      const { token } = res.data;
+      const { data, message } = res.data;
+      toast.success(message);
+      const { token, user } = data;
       // set token to local storage
       localStorage.setItem('jwtToken', token);
       // set token to Auth header
       setAuthToken(token);
-      // Decode token to get user data
-      const decoded = jwtDecode(token);
       // Set current user
-      dispatch(setCurrentUser(decoded));
+      dispatch(setCurrentUser(user));
     })
-    .catch(error => dispatch({
-      type: GET_ERRORS,
-      payload: error.response.data.message,
-    }));
+    .catch((err) => {
+      let { error: message } = err.response.data;
+      if (err.response.data.status === 401 || err.response.data.status === 422) {
+        message = {
+          auth: err.response.data.error,
+        };
+        toast.error(err.response.data.error, { toastId: 1 });
+      }
+      dispatch({
+        type: GET_ERRORS,
+        payload: message,
+      });
+    });
 };
 
-export const registerUser = (newUserDetails, history) => (dispatch) => {
-  axios.post('/auth/signup', newUserDetails)
+export const registerUser = userData => (dispatch) => {
+  dispatch(requestLoading());
+  axios
+    .post('/auth/signup', userData)
     .then((res) => {
-      if (res.status === 201) {
-        history.push('/dashboard');
-      }
+      // save token to local storage
+      const { data } = res.data;
+      const { token, user } = data[0];
+      // set token to local storage
+      localStorage.setItem('jwtToken', token);
+      // set token to Auth header
+      setAuthToken(token);
+      // Set current user
+      dispatch(setCurrentUser(user));
     })
-    .catch(err => dispatch({
-      type: GET_ERRORS,
-      payload: err.response.data.message,
-    }));
+    .catch((err) => {
+      let { error: message } = err.response.data;
+      if (err.response.data.status === 400 || err.response.data.status === 422) {
+        message = {
+          auth: err.response.data.error,
+        };
+        toast.error(err.response.data.error, { toastId: 1 });
+      }
+      dispatch({
+        type: GET_ERRORS,
+        payload: message,
+      });
+    });
 };
