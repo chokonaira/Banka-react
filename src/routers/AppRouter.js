@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BankaHomePage from '../pages/HomePage';
@@ -14,6 +15,7 @@ const AppRouter = () => (
   <BrowserRouter>
     <div>
       <Header />
+      <ToastContainer />
       <Switch>
         <Route path="/" component={BankaHomePage} exact />
         <Route path="/signup" component={BankaSignupPage} />
