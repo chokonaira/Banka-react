@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { registerUser } from '../actions/authActions';
 import Loader from '../components/Loader/index';
+import AuthHelper from '../helpers/index';
 import '../styles/css/style.css';
 import '../styles/css/utils.css';
 
@@ -20,10 +22,20 @@ class signupForm extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentDidMount() {
+    const { history } = this.props;
+    if (AuthHelper.validateToken()) {
+      history.goBack();
+    }
+  }
+
   componentDidUpdate() {
     const { register, history } = this.props;
+    // console.log(register, '>>>>>>>>>>>>>>>>>>>>>>>>>>>');
     if (register.isAuthenticated) {
-      history.push('/dashboard');
+      const message = 'Signup successful, Login to continue';
+      toast.success(message);
+      history.push('/login');
     }
   }
 
@@ -53,9 +65,8 @@ class signupForm extends Component {
     const { errors, register } = this.props;
     const { error } = errors;
     const { loading } = register;
-    const errorLoading = errors.loading;
 
-    if (loading && errorLoading) {
+    if (loading) {
       return (
         <div>
           <Loader />
@@ -149,7 +160,7 @@ signupForm.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  register: state.auth,
+  register: state.register,
   errors: state.errors,
 });
 

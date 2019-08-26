@@ -1,4 +1,5 @@
 import React from 'react';
+import jwtDecode from 'jwt-decode';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Header from '../components/Header';
@@ -9,6 +10,7 @@ import BankaLoginPage from '../pages/LoginPage';
 import BankaAboutPage from '../pages/AboutPage';
 import NotFoundPage from '../pages/NotFoundPage';
 import DashboardPage from '../pages/DashboardPage';
+import AuthenticatedRoute from './AuthenticatedRoute';
 
 
 const AppRouter = () => (
@@ -21,7 +23,7 @@ const AppRouter = () => (
         <Route path="/signup" component={BankaSignupPage} />
         <Route path="/login" component={BankaLoginPage} />
         <Route path="/about" component={BankaAboutPage} />
-        <Route path="/dashboard" component={DashboardPage} />
+        <AuthenticatedRoute path="/dashboard" component={DashboardPage} />
         <Route component={NotFoundPage} />
       </Switch>
       <Footer />

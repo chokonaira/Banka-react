@@ -2,15 +2,20 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from '../config/axiosInstance';
 import {
-  REQUEST_LOADING, GET_ERRORS, SET_CURRENT_USER,
+  LOGIN_REQUEST_LOADING, SIGN_UP_REQUEST_LOADING, GET_ERRORS, SET_CURRENT_USER, NEW_USER,
 } from './types';
 import setAuthToken from '../utils/setAuthToken';
 
 // set request loading
-export const requestLoading = () => ({
-  type: REQUEST_LOADING,
+export const requestLoading = type => ({
+  type,
 });
 
+// set logged in user
+export const newUser = decoded => ({
+  type: NEW_USER,
+  payload: decoded,
+});
 
 // set logged in user
 export const setCurrentUser = decoded => ({
@@ -19,7 +24,7 @@ export const setCurrentUser = decoded => ({
 });
 
 export const loginUser = userData => (dispatch) => {
-  dispatch(requestLoading());
+  dispatch(requestLoading(LOGIN_REQUEST_LOADING));
   axios
     .post('/auth/login', userData)
     .then((res) => {
@@ -29,6 +34,7 @@ export const loginUser = userData => (dispatch) => {
       const { token, user } = data;
       // set token to local storage
       localStorage.setItem('jwtToken', token);
+      localStorage.setItem('user', JSON.stringify(user));
       // set token to Auth header
       setAuthToken(token);
       // Set current user
@@ -42,6 +48,7 @@ export const loginUser = userData => (dispatch) => {
         };
         toast.error(err.response.data.error, { toastId: 1 });
       }
+      dispatch(requestLoading(LOGIN_REQUEST_LOADING));
       dispatch({
         type: GET_ERRORS,
         payload: message,
@@ -50,19 +57,15 @@ export const loginUser = userData => (dispatch) => {
 };
 
 export const registerUser = userData => (dispatch) => {
-  dispatch(requestLoading());
+  dispatch(requestLoading(SIGN_UP_REQUEST_LOADING));
   axios
     .post('/auth/signup', userData)
     .then((res) => {
       // save token to local storage
       const { data } = res.data;
-      const { token, user } = data[0];
-      // set token to local storage
-      localStorage.setItem('jwtToken', token);
-      // set token to Auth header
-      setAuthToken(token);
+      const { user } = data[0];
       // Set current user
-      dispatch(setCurrentUser(user));
+      dispatch(newUser(user));
     })
     .catch((err) => {
       let { error: message } = err.response.data;
@@ -72,6 +75,7 @@ export const registerUser = userData => (dispatch) => {
         };
         toast.error(err.response.data.error, { toastId: 1 });
       }
+      dispatch(requestLoading(SIGN_UP_REQUEST_LOADING));
       dispatch({
         type: GET_ERRORS,
         payload: message,

@@ -1,5 +1,5 @@
 import isEmpty from '../validations/isEmpty';
-import { SET_CURRENT_USER, REQUEST_LOADING } from '../actions/types';
+import { SET_CURRENT_USER, LOGIN_REQUEST_LOADING } from '../actions/types';
 
 const initialState = {
   isAuthenticated: false,
@@ -8,10 +8,10 @@ const initialState = {
 };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case REQUEST_LOADING:
+    case LOGIN_REQUEST_LOADING:
       return {
         ...state,
-        loading: true,
+        loading: !state.loading,
       };
     case SET_CURRENT_USER:
       return {

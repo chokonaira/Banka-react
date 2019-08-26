@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { loginUser } from '../actions/authActions';
 import Loader from '../components/Loader/index';
-
+import AuthHelper from '../helpers/index';
 import '../styles/css/style.css';
 import '../styles/css/utils.css';
 
@@ -17,6 +17,13 @@ class LoginForm extends Component {
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    const { history } = this.props;
+    if (AuthHelper.validateToken()) {
+      history.goBack();
+    }
   }
 
   componentDidUpdate() {
@@ -45,9 +52,8 @@ class LoginForm extends Component {
     const { errors, auth } = this.props;
     const { error } = errors;
     const { loading } = auth;
-    const errorLoading = errors.loading;
 
-    if (loading && errorLoading) {
+    if (loading) {
       return (
         <div>
           <Loader />
