@@ -1,12 +1,11 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Dashboard from '../components/Dashboard';
 
 
 const DashboardPage = () => (
   <div>
-    <h1>WELCOME TO THE USER DASHBOARD PAGE</h1>
-    <Link to="/">Go home</Link>
+    <Dashboard />
   </div>
 );
 
