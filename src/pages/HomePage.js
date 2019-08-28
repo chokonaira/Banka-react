@@ -1,25 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../styles/css/style.css';
 import '../styles/css/utils.css';
 
 
-const BankaHomePage = ({ auth: { user } }) => (
+const BankaHomePage = () => (
   <div className="cont">
+
     <div className="wrapper d-flex flex-col  a-i-center">
       <h2 className="get-started1">Smart way to bank...</h2>
-      {
-       user
-         ? <Link to="/dashboard" className="get-started">Return to Dashboard</Link>
-         : <Link to="/signup" className="get-started">Get Started</Link>
-     }
+      <Link to="/signup" className="get-started">Get Started</Link>
     </div>
+
   </div>
 );
 
-const mapStateToProps = state => ({
-  auth: state.auth,
-});
-
-export default connect(mapStateToProps)(BankaHomePage);
+export default BankaHomePage;

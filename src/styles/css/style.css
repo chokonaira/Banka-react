@@ -136,6 +136,11 @@ body, html {
   display: block;
 }
 
+.active{
+  border-bottom: 6px solid aliceblue;
+  line-height: 4rem;
+
+}
 .slider-images{
   margin-top: 80px;   
 float: right;
