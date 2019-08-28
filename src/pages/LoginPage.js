@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { loginUser } from '../actions/authActions';
-import Loader from '../components/Loader/index';
-import AuthHelper from '../helpers/index';
+import Loader from '../components/loader';
 import '../styles/css/style.css';
 import '../styles/css/utils.css';
 
@@ -19,12 +18,12 @@ class LoginForm extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  componentDidMount() {
-    const { history } = this.props;
-    if (AuthHelper.validateToken()) {
-      history.goBack();
-    }
-  }
+  // componentDidMount() {
+  //   const { history } = this.props;
+  //   if (AuthHelper.validateToken()) {
+  //     history.goBack();
+  //   }
+  // }
 
   componentDidUpdate() {
     const { auth, history } = this.props;
