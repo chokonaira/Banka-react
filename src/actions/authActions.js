@@ -58,12 +58,32 @@ export const loginUser = userData => (dispatch) => {
 
 export const registerUser = userData => (dispatch) => {
   dispatch(requestLoading(SIGN_UP_REQUEST_LOADING));
+
+  let {
+    firstname,
+    lastname,
+    email,
+    password
+  } = userData;
+
+  firstname = firstname.toLowerCase();
+  lastname = lastname.toLowerCase();
+  email = email.toLowerCase();
+
+  const newUserData = {
+    firstname,
+    lastname,
+    email,
+    password,
+  };
+
   axios
-    .post('/auth/signup', userData)
+    .post('/auth/signup', newUserData)
     .then((res) => {
       // save token to local storage
       const { data } = res.data;
       const { user } = data[0];
+
       // Set current user
       dispatch(newUser(user));
     })
@@ -82,3 +102,4 @@ export const registerUser = userData => (dispatch) => {
       });
     });
 };
+
