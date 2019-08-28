@@ -1,4 +1,4 @@
-.heado {
+.header {
   display: flex;
   justify-content: space-between;
   background-color: #800000;
@@ -6,11 +6,11 @@
   color: white;
 }
 
-.heado h1 {
+.header h1 {
   display: inline-block;
   padding: 10px;
 }
-.nbar {
+.navbar {
   display: flex;
   justify-content: space-around;
   margin-right: 10px;
@@ -22,8 +22,14 @@
   text-decoration: none !important;
 
 }
+.navlinks {
+  margin: 20px;
+  color: white;
+  font-size: 20px;;
+  text-decoration: none !important;
 
 
+}
 .navlink a:hover {
   margin: 20px;
   color: green;

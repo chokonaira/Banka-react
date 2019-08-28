@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { registerUser } from '../actions/authActions';
-import Loader from '../components/loader';
+import Loader from '../components/Loader/index';
 import AuthHelper from '../helpers/index';
 import '../styles/css/style.css';
 import '../styles/css/utils.css';
