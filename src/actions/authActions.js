@@ -25,7 +25,7 @@ export const setCurrentUser = decoded => ({
 
 export const loginUser = userData => (dispatch) => {
   dispatch(requestLoading(LOGIN_REQUEST_LOADING));
-  axios
+  axios()
     .post('/auth/login', userData)
     .then((res) => {
       // save token to local storage
@@ -58,8 +58,27 @@ export const loginUser = userData => (dispatch) => {
 
 export const registerUser = userData => (dispatch) => {
   dispatch(requestLoading(SIGN_UP_REQUEST_LOADING));
-  axios
-    .post('/auth/signup', userData)
+
+  let {
+    firstname,
+    lastname,
+    email,
+    password
+  } = userData;
+
+  firstname = firstname.toLowerCase();
+  lastname = lastname.toLowerCase();
+  email = email.toLowerCase();
+
+  const newUserData = {
+    firstname,
+    lastname,
+    email,
+    password,
+  };
+
+  axios()
+    .post('/auth/signup', newUserData)
     .then((res) => {
       // save token to local storage
       const { data } = res.data;
