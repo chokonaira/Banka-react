@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { createAccounts } from '../actions/accountActions';
+import { createAccounts, clearAccountCreatedState } from '../actions/accountActions';
 import Loader from './loader';
 import SideBar from './SideBar';
 import '../styles/css/utils.css';
@@ -22,9 +22,10 @@ class CreateAcct extends Component {
   }
 
   componentDidUpdate() {
-    const { createAcct: { account }, history } = this.props;
+    const { createAcct: { account, created }, history } = this.props;
 
-    if (account.accountno) {
+    if (account.accountno && created) {
+      this.props.clearAccountCreatedState();
       toast.success('Account created succesfully, proceed to any of any Banka branch near you to perform a transcation');
       history.push('/dashboard');
     }
@@ -118,5 +119,5 @@ const mapStateToProps = state => ({
 });
 
 export default compose(
-  withRouter, connect(mapStateToProps, { createAccounts }),
+  withRouter, connect(mapStateToProps, { createAccounts, clearAccountCreatedState }),
 )(CreateAcct);

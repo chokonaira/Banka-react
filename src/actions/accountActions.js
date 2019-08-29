@@ -5,6 +5,7 @@ import axios from '../config/axiosInstance';
 import {
   GET_ACCOUNT, ACCOUNT_LOADING, CREATE_ACCOUNT, GET_ERRORS,
   CREATE_ACCOUNT_LOADING,
+  CLEAR_ACCOUNT_CREATED,
 } from './types';
 
 // set request loading
@@ -21,6 +22,12 @@ export const userAccounts = email => (dispatch) => {
       payload: res.data.data,
     }))
     .catch();
+};
+
+export const clearAccountCreatedState = () => (dispatch) => {
+  dispatch({
+    type: CLEAR_ACCOUNT_CREATED,
+  });
 };
 
 // CREATE BANK ACCOUNT

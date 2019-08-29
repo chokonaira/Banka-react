@@ -1,8 +1,9 @@
-import { CREATE_ACCOUNT, CREATE_ACCOUNT_LOADING } from '../actions/types';
+import { CREATE_ACCOUNT, CREATE_ACCOUNT_LOADING, CLEAR_ACCOUNT_CREATED } from '../actions/types';
 
 const initialState = {
   account: {},
   loading: false,
+  created: false,
 };
 
 const createAcctReducer = (state = initialState, action) => {
@@ -17,6 +18,12 @@ const createAcctReducer = (state = initialState, action) => {
         ...state,
         account: action.payload,
         loading: false,
+        created: true,
+      };
+    case CLEAR_ACCOUNT_CREATED:
+      return {
+        ...state,
+        created: false,
       };
     default:
       return state;

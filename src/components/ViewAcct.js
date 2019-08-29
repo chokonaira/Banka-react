@@ -31,10 +31,10 @@ const ViewAccount = ({ accounts: { accounts } }) => {
                       </tr>
                     </thead>
                     <tbody>
-                      {accounts.slice(0, 4).map(account => (
+                      {accounts.slice(0, 4).map((account, index) => (
                         <Fragment>
                           <tr>
-                            <td>{account.account_id}</td>
+                            <td>{index + 1}</td>
                             <td className="text-uppercase">
                               {firstname}
                               {' '}
