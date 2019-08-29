@@ -25,7 +25,7 @@ class CreateAcct extends Component {
     const { createAcct: { account }, history } = this.props;
 
     if (account.accountno) {
-      toast.success('Account created succesfully, proceed to any of any Banka branche near you to perform a transcation');
+      toast.success('Account created succesfully, proceed to any of any Banka branch near you to perform a transcation');
       history.push('/dashboard');
     }
   }
