@@ -42,20 +42,22 @@ class SideBar extends React.Component {
             {' '}
           </h4>
           <h5 className="hey1 mt-1 lo">{email}</h5>
-         
+
           <Link to="/signup" />
           <button type="submit" className="btn btn-info mt-1 mb-1" id="logout" onClick={this.logout}>Logout</button>
         </div>
         <ul>
-          <Link to="/dashboard" />
           <li className="active">
-            
-              User Dashboard
+            <Link to="/dashboard">
+            User Dashboard
+            </Link>
           </li>
           <li>
-            <Link to="/account" />
+            <Link to="/account">
             Create Account
+            </Link>
           </li>
+          
         </ul>
       </div>
     );
