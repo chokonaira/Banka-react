@@ -18,13 +18,6 @@ class LoginForm extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  // componentDidMount() {
-  //   const { history } = this.props;
-  //   if (AuthHelper.validateToken()) {
-  //     history.goBack();
-  //   }
-  // }
-
   componentDidUpdate() {
     const { auth, history } = this.props;
     if (auth.isAuthenticated) {

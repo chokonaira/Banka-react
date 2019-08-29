@@ -19,8 +19,19 @@ const ViewAccount = ({ accounts: { accounts } }) => {
                 <div className="my-1 d-flex justify-content a-i-center" />
                 <div className="table-container">
                   <table>
+                    <thead>
+
+                      <tr>
+                        <th>Acct ID</th>
+                        <th>Full Name</th>
+                        <th>Acct No.</th>
+                        <th>Amount</th>
+                        <th>Acct type</th>
+
+                      </tr>
+                    </thead>
                     <tbody>
-                      {accounts.map(account => (
+                      {accounts.slice(0, 4).map(account => (
                         <Fragment>
                           <tr>
                             <td>{account.account_id}</td>

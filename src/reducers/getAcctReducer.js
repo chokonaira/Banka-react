@@ -5,7 +5,7 @@ const initialState = {
   loading: false,
 };
 
-const accountReducer = (state = initialState, action) => {
+const getAcctReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACCOUNT_LOADING:
       return {
@@ -22,4 +22,4 @@ const accountReducer = (state = initialState, action) => {
       return state;
   }
 };
-export default accountReducer;
+export default getAcctReducer;
