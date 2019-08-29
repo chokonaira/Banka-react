@@ -27,6 +27,7 @@ class SideBar extends React.Component {
     const user = JSON.parse(localStorage.getItem('user'));
     const { firstname, lastname, email } = user;
     const { file } = this.state;
+    const { history } = this.props;
     return (
       <div className="sidebar">
         <div className="d-flex flex-col j-c-center a-i-center mt-2">
@@ -41,30 +42,19 @@ class SideBar extends React.Component {
             {' '}
           </h4>
           <h5 className="hey1 mt-1 lo">{email}</h5>
-          <input
-            type="file"
-            accept="image/jpeg,image/jpg,image/png"
-            name="passport"
-            id="passport"
-            onChange={this.handleFileChange}
-            on
-          />
+         
           <Link to="/signup" />
           <button type="submit" className="btn btn-info mt-1 mb-1" id="logout" onClick={this.logout}>Logout</button>
         </div>
         <ul>
-          <Link to="/signup" />
+          <Link to="/dashboard" />
           <li className="active">
+            
               User Dashboard
-
           </li>
           <li>
             <Link to="/account" />
-              Create Account
-          </li>
-          <li>
-            <Link to="/transactions" />
-              Transactions
+            Create Account
           </li>
         </ul>
       </div>
