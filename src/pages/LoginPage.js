@@ -7,7 +7,7 @@ import Loader from '../components/loader';
 import '../styles/css/style.css';
 import '../styles/css/utils.css';
 
-class LoginForm extends Component {
+export class LoginForm extends Component {
   constructor() {
     super();
     this.state = {
