@@ -30,5 +30,10 @@
   border: solid 1px white;
 }
 
+@media only screen and (max-width: 400px) {
+  .nbar {
+    display: none;
+  }
+}
 
 

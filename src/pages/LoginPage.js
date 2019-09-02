@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { loginUser } from '../actions/authActions';
@@ -93,6 +94,11 @@ export class LoginForm extends Component {
               )}
             </div>
             <input type="submit" value="Submit" id="submit" className="btn-default" />
+            <div className="link">
+              <p className="p">Dont have an account? </p>
+              {' '}
+              <Link to="/signup">Signup </Link>
+            </div>
           </form>
         </div>
       </div>

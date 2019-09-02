@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import classnames from 'classnames';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { registerUser } from '../actions/authActions';
 import Loader from '../components/loader';
@@ -145,6 +146,11 @@ class signupForm extends Component {
               )}
             </div>
             <input type="submit" value="Submit" id="submit" className="btn-default" />
+            <div className="link">
+              <p className="p">Dont have an account? </p>
+              {' '}
+              <Link to="/login">Login </Link>
+            </div>
           </form>
         </div>
       </div>
