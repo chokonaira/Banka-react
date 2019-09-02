@@ -5,8 +5,8 @@ import '../styles/css/style.css';
 import '../styles/css/utils.css';
 
 
-const BankaHomePage = ({ auth: { user } }) => (
-  <div className="cont">
+export const BankaHomePage = ({ auth: { user } }) => (
+  <div className="cont container">
     <div className="wrapper d-flex flex-col  a-i-center">
       <h2 className="get-started1">Smart way to bank...</h2>
       {
