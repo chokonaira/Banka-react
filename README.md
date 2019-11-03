@@ -23,6 +23,9 @@ npm start
 ### UI Templates
 My UI templates can be found here: [ UI ](https://banka--react.herokuapp.com/)
 
+### Banka Backend
+My Backend logic can be found here: [Backend](https://github.com/chokonaira/Banka)
+
 ### Pivotal Tracker
 My Pivotal Tracker board can be found [ here ](https://www.pivotaltracker.com/n/projects/2320730)
 
