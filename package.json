@@ -44,7 +44,7 @@
     "live-server": "^1.2.0",
     "moxios": "^0.4.0",
     "node-fetch": "^2.6.0",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.13.1",
     "normalize.css": "^7.0.0",
     "nyc": "^14.1.1",
     "prop-types": "^15.7.2",
