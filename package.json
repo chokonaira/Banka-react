@@ -43,7 +43,7 @@
     "jwt-decode": "^2.2.0",
     "live-server": "^1.2.0",
     "moxios": "^0.4.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "node-sass": "^4.5.3",
     "normalize.css": "^7.0.0",
     "nyc": "^14.1.1",
