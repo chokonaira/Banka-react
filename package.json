@@ -39,7 +39,7 @@
     "identity-obj-proxy": "^3.0.0",
     "import-glob-loader": "^1.1.0",
     "jest": "^24.8.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "jwt-decode": "^2.2.0",
     "live-server": "^1.2.0",
     "moxios": "^0.4.0",
